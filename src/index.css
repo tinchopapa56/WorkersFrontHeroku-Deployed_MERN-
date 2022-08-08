@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600&display=swap');
+
+:root{
+  --global-color-1: #FB6F92;
+  --global-color-2: #FF8FAB;
+  --global-color-3: #FFC2D1;
+  --global-color-4: #FFE5EC;
+  --global-radius: 5px;
+}
+body {
+  margin: 0;
+  font-family: 'Nunito', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1{
+  margin: 0 ;
+}
+a{
+  text-decoration: none;
+  color: var(--global-color-2)
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

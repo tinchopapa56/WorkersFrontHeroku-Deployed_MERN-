@@ -1,0 +1,12 @@
+.navbar{
+    background-color: var(--global-color-1);
+    width: 98%;
+    overflow: hidden;
+    padding: 1em;
+    display: flex;
+}
+.navbar > a{
+    /* font-size: 10rem; */
+    color: white;
+    margin: 0 1em;
+}
