@@ -21,7 +21,9 @@ a{
   text-decoration: none;
   color: var(--global-color-2)
 }
-
+.error-color{
+  color: red;
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
