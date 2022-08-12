@@ -2,7 +2,8 @@ import React, {useEffect} from 'react'
 import { useNavigate } from 'react-router-dom'
 import {useFormik} from "formik"
 import * as Yup from "yup"
-
+import Swal from 'sweetalert2'
+import axios from "../axios"
 
 const WorkerRegister = () => {
 
@@ -32,10 +33,44 @@ const WorkerRegister = () => {
     
   })
 
+  const hARCODEname = "JOSE HARDCODEADO"
+
   const onSubmit = () => {
-    //POSTEAR cargar el objeto a una base de datos
-    //para fetchearlo despues
-  }
+    axios({
+      method: 'post',
+      url: '/workers',
+      data: {
+        name: "jose (1era api post)",
+        country: "ecu (1era api post)",
+        age: 23,
+        phone: "011341(1era api post)",
+        job: "senior (1era api post)",
+        status: "busy (1era api post)",
+      }
+    })
+    .then(data => console.log(data))
+    .then(
+      Swal.fire({
+      icon: 'success',
+      title: `New Worker registered`,
+      timer: 1500
+    }))
+    .catch(err => console.log(err))
+
+    // fetch("//localhost:8080/auth/register", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify({
+    //     user: {
+    //       userName: "Fred",
+    //       password: "laqueva",
+    //       email: "prueba1@gmail.com",
+    //     },
+    //   }),
+    // }).then(response => response.json)
+}
 
   const formik = useFormik({initialValues, validationSchema, onSubmit})
   const {handleChange,handleSubmit, errors, values} = formik
@@ -81,3 +116,8 @@ const WorkerRegister = () => {
 }
 
 export default WorkerRegister
+
+// Swal.fire({
+      //   icon: 'success',
+      //   title: `You registered a new worker:${hARCODEname}`,
+      // })

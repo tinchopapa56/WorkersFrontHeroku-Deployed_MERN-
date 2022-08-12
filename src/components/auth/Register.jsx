@@ -4,6 +4,7 @@ import "./auth.styles.css"
 import {useFormik} from "formik"
 import * as Yup from "yup"
 import { v4 as uuidv4 } from "uuid"
+import Swal from 'sweetalert2'
 
 const Register = () => {
   
@@ -22,6 +23,11 @@ const Register = () => {
 
   const onSubmit = () => {
     localStorage.setItem("logged", "true")
+    Swal.fire({
+      icon: 'success',
+      title: 'You are now registered',
+      timer: 1500
+    })
     navigate("/login", {replace:true})
   }
 
@@ -44,7 +50,7 @@ const Register = () => {
           {errors.email && <div className="error-color">{errors.email}</div>}
           <div> 
             <label>Password</label>
-            <input name="password" onChange={handleChange} value={values.password}/>
+            <input name="password" onChange={handleChange} value={values.password} type="password"/>
           </div>
           {errors.password && <div className="error-color">{errors.password}</div>}
           <button type="submit">Register</button>

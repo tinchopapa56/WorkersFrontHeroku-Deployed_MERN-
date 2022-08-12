@@ -3,6 +3,7 @@ import "./auth.styles.css"
 import {useNavigate, Link} from "react-router-dom"
 import { useFormik } from "formik"
 import * as Yup from 'yup';
+import Swal from 'sweetalert2';
 
 function Login() {
 
@@ -22,7 +23,11 @@ function Login() {
     if(localStorage.getItem("logged")){
      navigate("/workerRegister", {replace:true})
     } else{
-      alert("You don´t have an account")
+      Swal.fire({
+        icon: 'error',
+        title: 'Email or password are wrong',
+        // timer: 1500
+      })
     }
   }
   const formik = useFormik( {initialValues, validationSchema, onSubmit} );
@@ -41,7 +46,7 @@ console.log(errors)
             {errors.email && <div className="error-color">{errors.email}</div>}
           <div> 
             <label>Password</label>
-            <input onChange={handleChange} value={values.password} name="password" />
+            <input onChange={handleChange} value={values.password} name="password" type="password"/>
           </div>
             {errors.password && <div className="error-color">{errors.password}</div>}
           <button type="submit">Login</button>
