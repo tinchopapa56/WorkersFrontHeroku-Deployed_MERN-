@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom"
 import Login from "./components/auth/Login"
 import Register from "./components/auth/Register";
 import WorkerRegister from "./components/auth/WorkerRegister";
+import WorkerEdit from "./components/auth/WorkerEdit";
 import WorkersList from "./components/WorkersList/WorkersList";
 import Navbar from "./components/Navbar/Navbar";
 
@@ -14,6 +15,7 @@ function App() {
         <Route path="/login" element={<Login />}/>
         <Route path="/register" element={<Register />}/>
         <Route path="/workerRegister" element={<WorkerRegister />}/>
+        <Route path="/workerEdit:id" element={<WorkerEdit />}/>
         {/* <Route path="/workersList" element={<WorkersList />}/> */}
       </Routes>
     </div>

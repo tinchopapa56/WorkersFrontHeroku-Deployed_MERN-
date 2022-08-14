@@ -1,10 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600&display=swap');
 
 :root{
-  --global-color-1: #FB6F92;
+  /* --global-color-1: #FB6F92;
   --global-color-2: #FF8FAB;
   --global-color-3: #FFC2D1;
-  --global-color-4: #FFE5EC;
+  --global-color-4: #FFE5EC; */
+  
+  --global-color-1: #5585b5;
+  --global-color-2: #53a8b6;
+  --global-color-3: #79c2d0;
+  --global-color-4: #bbe4e9;
+
   --global-radius: 5px;
 }
 body {

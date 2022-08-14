@@ -1,7 +1,6 @@
 .main{
     background-color: rgb(255, 255, 255);
     margin: 0;
-    /* min-height: 100vh; */
 }
 
 .main > h2 { 
@@ -22,15 +21,15 @@
     display: grid;
     gap: 1rem;
     grid-template-columns: repeat(7,1fr);
-    border: 1px green solid;
+    box-shadow: var(--global-color-4) 0px 48px 100px 0px;
+    /* box-shadow: var(--global-color-4) 2.5em 2.5em 2.5em 2.5em; */
+    /* border: 1px green solid; */
 }
 .main__list__div__element{
-    border: 3px black solid;
 }
 
 .main__list__div__button{
-    margin: 1em;
-    border: none;
+    border: 1px solid black;
     color: white;
     background-color: orange;
 }
@@ -39,27 +38,34 @@
 
 .main__list__div__buttonholder{
     display: flex;
-    /* border: 3px solid blue; */
     cursor: pointer;
 }
 
 .edit__button{
     width: 50%;
     border: none;
-    color: white;
-    background-color: grey;
+    background-color: var(--global-color-4) 0px 48px 100px 0px;
+    background-image: url("../../../../edit.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: var(--global-color-4) 0px 48px 100px 0px;
     cursor: pointer;
 }
 .remove__button{
     width: 50%;
     border: none;
-    color: white;
-    background-color: orange;
+    background-color: var(--global-color-4) 0px 48px 100px 0px;
+    background-image: url("../../../../delete3.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
     cursor: pointer;
 }
 
 @media (max-width: 750px) {
     .main__list__container{
+        
         margin: 1em 0em;
     }
     .main__list__div{
@@ -71,16 +77,14 @@
         font-size: 0.6rem;
     }
     .main__list__div__button{
-        background-color: red;
         font-size: 0.6rem;
         display: inline-block;
-        border: 3px black solid;
+        border: 1px black solid;
     }
     .edit__button{
         font-size: 0.6rem;
         width: 100%;
         min-height: 50%;
-
     }
     .remove__button{
         font-size: 0.6rem;
@@ -91,5 +95,13 @@
         margin: 0;
         display: flex;
         flex-direction: column;
+    }
+}
+
+@media (max-width:425px) {
+    .main__list__div__button{
+        position: relative;
+        margin: auto;
+        width: 100%;
     }
 }
