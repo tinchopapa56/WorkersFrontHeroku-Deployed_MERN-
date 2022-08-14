@@ -1,6 +1,7 @@
 import React from 'react'
 import "./WorkersList.css"
 import axios from "../axios"
+import { Link } from "react-router-dom"
 import { useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
 
@@ -33,10 +34,11 @@ const [workers, setWorkers] = useState([])
   }
 
 
-  const editWorker = (e)=>{
-    let targetWorker = workers.filter((worker)=>{
-      return workers._id == e.target.id
-    })
+  // const editWorker = (e)=>{
+  //   let targetWorker = workers.filter((worker)=>{
+  //     return workers._id === e.target.id;
+  //   })
+
     // useEffect(()=>{
     //   console.log(targetWorker)
     // },[targetWorker])
@@ -52,7 +54,7 @@ const [workers, setWorkers] = useState([])
     //     console.log(res);
     //   })
     //   .catch(err => console.log(err));
-    }
+    // }
 
   return (
     <div className="main">
@@ -80,7 +82,8 @@ const [workers, setWorkers] = useState([])
               <button className="main__list__div__button">{worker.years}</button>
               <div className="main__list__div__buttonholder">
                 <button className="remove__button" id={worker._id} onClick={(e) => removeWorker(e)}></button>
-                <button className="edit__button" id={worker._id} onClick={(e)=> editWorker(e)}></button>
+                <Link to={`/workerEdit/:${worker._id}`} className="edit__button"> <button className="edit__button"></button> </Link>
+                {/* <button className="edit__button" id={worker._id} onClick={(e)=> editWorker(e)}></button> */}
               </div>
             </div>
           )}
