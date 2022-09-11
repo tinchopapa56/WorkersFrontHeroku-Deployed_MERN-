@@ -11,12 +11,22 @@ const [renderHandler, setRenderHandler] = useState(0);
 const [workers, setWorkers] = useState([])
   
   useEffect(()=>{
-    axios.get("/workers")
-      .then(res => {
-        // console.log(res);
-        setWorkers(res.data);
-      })
+    axios.get("/tinder/cards")       // ANDA BIEN
+      .then(res => console.log(res))
       .catch(err => console.error(err))
+  },[renderHandler])
+
+  useEffect(()=>{
+    const getWorkers = async ()=>{
+      try{
+        const res = await axios.get("/workers");
+        setWorkers(res.data)
+        // console.log(res);
+      }catch(err){
+        console.log(err);
+      }
+    }
+    getWorkers();
   },[renderHandler])
 
   const removeWorker = (e)=>{
@@ -33,29 +43,6 @@ const [workers, setWorkers] = useState([])
     .catch(err => console.log(err))
   }
 
-
-  // const editWorker = (e)=>{
-  //   let targetWorker = workers.filter((worker)=>{
-  //     return workers._id === e.target.id;
-  //   })
-
-    // useEffect(()=>{
-    //   console.log(targetWorker)
-    // },[targetWorker])
-
-      // if (worker._id == e.target.id) {
-      //   const targetWorker = worker;
-      //   console.log(targetWorker)
-    
-     
-//create NEWdata/user
-    // axios.put(`workers${e.target.id}`)
-    //   .then(res =>{
-    //     console.log(res);
-    //   })
-    //   .catch(err => console.log(err));
-    // }
-
   return (
     <div className="main">
       <h2> Workers List </h2>
@@ -67,9 +54,12 @@ const [workers, setWorkers] = useState([])
           <strong className="main__list__div__element"><p>Lives in</p></strong>
           <strong className="main__list__div__element"><p>Age</p></strong>
           <strong className="main__list__div__element"><p>Phone</p></strong>
-          <strong className="main__list__div__element"><p>Position</p></strong>
-          <strong className="main__list__div__element"><p>Years in this company</p></strong>
-          <strong className="main__list__div__element"><p>Actions</p></strong>
+          <button className="main__list__div__button" id="mainbar">Position</button>
+          <button className="main__list__div__button" id="mainbar">Years in This Company</button>
+          <button className="main__list__div__button" id="mainbar">Actions</button>
+          {/* <strong className="main__list__div__button"><p>Position</p></strong> */}
+          {/* <strong className="main__list__div__element"><p>Years in this company</p></strong> */}
+          {/* <strong className="main__list__div__element"><p>Actions</p></strong> */}
         </div>
         {workers.map( (worker)=> {
           return (
@@ -78,12 +68,12 @@ const [workers, setWorkers] = useState([])
               <p className="main__list__div__element">{worker.country}</p>
               <p className="main__list__div__element">{worker.age}</p>
               <p className="main__list__div__element">{worker.phone}</p>
-              <p className="main__list__div__element">{worker.job}</p>
+              {/* <p className="main__list__div__element">{worker.job}</p> */}
+              <button className="main__list__div__button">{worker.job}</button>
               <button className="main__list__div__button">{worker.years}</button>
               <div className="main__list__div__buttonholder">
                 <button className="remove__button" id={worker._id} onClick={(e) => removeWorker(e)}></button>
-                <Link to={`/workerEdit/:${worker._id}`} className="edit__button"> <button className="edit__button"></button> </Link>
-                {/* <button className="edit__button" id={worker._id} onClick={(e)=> editWorker(e)}></button> */}
+                <Link to={`/workerEdit/:${worker._id}`} className="edit__button"></Link>
               </div>
             </div>
           )}
