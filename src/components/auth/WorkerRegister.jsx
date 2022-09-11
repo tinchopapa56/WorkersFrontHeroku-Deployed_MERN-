@@ -51,7 +51,8 @@ const WorkerRegister = () => {
         icon: 'success',
         title: `${values.name} was registered as a worker`,
         timer: 1500
-      })
+      });
+      navigate("/", {replace:true});
     })
     .catch(err => console.log(err))
     // .then(response => response.json)

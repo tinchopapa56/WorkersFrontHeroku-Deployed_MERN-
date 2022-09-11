@@ -7,7 +7,14 @@
     margin: 0;
     padding: 0.5em;
 }
+#mainbar{
+    font-weight: bold;
+    font-family: "nunito";
+}
 .main > div > div > div button:hover { 
+    background-color: var(--global-color-1);
+}
+.main > div > div > div a:hover { 
     background-color: var(--global-color-1);
 }
 
@@ -22,16 +29,11 @@
     gap: 1rem;
     grid-template-columns: repeat(7,1fr);
     box-shadow: var(--global-color-4) 0px 48px 100px 0px;
-    /* box-shadow: var(--global-color-4) 2.5em 2.5em 2.5em 2.5em; */
-    /* border: 1px green solid; */
-}
-.main__list__div__element{
 }
 
 .main__list__div__button{
-    border: 1px solid black;
-    color: white;
-    background-color: orange;
+    border: none;
+    background-color: var(--global-color-4) 0px 48px 100px 0px;
 }
 
 /*ACTIONS buttons*/
@@ -44,12 +46,10 @@
 .edit__button{
     width: 50%;
     border: none;
-    background-color: var(--global-color-4) 0px 48px 100px 0px;
     background-image: url("../../../../edit.png");
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    box-shadow: var(--global-color-4) 0px 48px 100px 0px;
     cursor: pointer;
 }
 .remove__button{
@@ -79,9 +79,8 @@
     .main__list__div__button{
         font-size: 0.6rem;
         display: inline-block;
-        border: 1px black solid;
     }
-    .edit__button{
+    .edit__button{ /*LO BORRRE*/
         font-size: 0.6rem;
         width: 100%;
         min-height: 50%;
