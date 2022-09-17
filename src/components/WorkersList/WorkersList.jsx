@@ -5,10 +5,15 @@ import { Link } from "react-router-dom"
 import { useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
 
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css'
+
+
 function WorkersList() {
 
 const [renderHandler, setRenderHandler] = useState(0);
 const [workers, setWorkers] = useState([])
+const [loading, setLoading] = useState(true)
   
   useEffect(()=>{
     axios.get("/tinder/cards")       // ANDA BIEN
@@ -20,7 +25,8 @@ const [workers, setWorkers] = useState([])
     const getWorkers = async ()=>{
       try{
         const res = await axios.get("/workers");
-        setWorkers(res.data)
+        setWorkers(res.data);
+        setLoading(false);
         // console.log(res);
       }catch(err){
         console.log(err);
@@ -46,10 +52,10 @@ const [workers, setWorkers] = useState([])
   return (
     <div className="main">
       <h2> Workers List </h2>
+          
       <div className="main__list__container">
 
         <div className="main__list__div">
-          {/* <strong><p>ID</p></strong> */}
           <strong className="main__list__div__element"><p>Name</p></strong>
           <strong className="main__list__div__element"><p>Lives in</p></strong>
           <strong className="main__list__div__element"><p>Age</p></strong>
@@ -61,7 +67,13 @@ const [workers, setWorkers] = useState([])
           {/* <strong className="main__list__div__element"><p>Years in this company</p></strong> */}
           {/* <strong className="main__list__div__element"><p>Actions</p></strong> */}
         </div>
-        {workers.map( (worker)=> {
+        {/* <Skeleton count={10} height={"50px"} /> */}
+        {loading ? 
+          (
+            <Skeleton count={20} height={"40px"} />
+          ) 
+          : 
+          (workers.map( (worker)=> {
           return (
             <div key={worker._id} className="main__list__div">
               <p className="main__list__div__element">{worker.name}</p>
@@ -71,13 +83,15 @@ const [workers, setWorkers] = useState([])
               {/* <p className="main__list__div__element">{worker.job}</p> */}
               <button className="main__list__div__button">{worker.job}</button>
               <button className="main__list__div__button">{worker.years}</button>
+
               <div className="main__list__div__buttonholder">
                 <button className="remove__button" id={worker._id} onClick={(e) => removeWorker(e)}></button>
                 <Link to={`/workerEdit/:${worker._id}`} className="edit__button"></Link>
               </div>
             </div>
-          )}
+          )})
         )}
+      
       </div>
     </div>
   )
