@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/WorkersFrontHeroku-Deployed_MERN-/static/css/main.a4a749e1.css",
+    "main.js": "/WorkersFrontHeroku-Deployed_MERN-/static/js/main.045235f9.js",
+    "static/media/edit.png": "/WorkersFrontHeroku-Deployed_MERN-/static/media/edit.fbc55a112082dcac2de0.png",
+    "index.html": "/WorkersFrontHeroku-Deployed_MERN-/index.html",
+    "main.a4a749e1.css.map": "/WorkersFrontHeroku-Deployed_MERN-/static/css/main.a4a749e1.css.map",
+    "main.045235f9.js.map": "/WorkersFrontHeroku-Deployed_MERN-/static/js/main.045235f9.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a4a749e1.css",
+    "static/js/main.045235f9.js"
+  ]
+}
